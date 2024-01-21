@@ -36,8 +36,18 @@ const Nav = () => {
     /* inner */}
     <div className='flex w-full xl:flex-col items-center justify-between xl:justify-center gap-y-10 px-4 xl:px-0 h-80 xl:h-max py-8 bg-white/10 backdrop-blur-sm text-3xl xl:text-xl xl:rounded-full'>
       {navData.map((link, index) => {
-        return <Link href={link.path}>{link.icon}</Link>
-      })}
+        return (
+        <Link 
+        className={`${link.path === pathname && 'text-accent'} relative flex items-center group hover:text-accent transition-all duration-300`} 
+        href={link.path}
+        key={index}
+        >
+          {/* tooltip */}
+          <div>
+            <div className='text-[12px]'>{link.name}</div>
+          </div>
+          <div>{link.icon}</div></Link>
+      )})}
     </div>
     </nav>);
 };
